@@ -28,7 +28,7 @@ const data=[
 const skillName = "Address Book";
 
 //This is the welcome message for when a user starts the skill without a specific intent.
-const WELCOME_MESSAGE = "Welcome to " + skillName + "I help you keep track of your friends and family contact information. For example, you can ask me, " + getGenericHelpMessage(data);
+const WELCOME_MESSAGE = "Welcome to " + skillName + " I help you keep track of your friends and family contact information. For example, " + getGenericHelpMessage(data);
 
 //This is the message a user will hear when they ask Alexa for help in your skill.
 const HELP_MESSAGE = "I can tell you your friends and family's contact information, like their phone number, city, or birthday. ";
@@ -289,7 +289,7 @@ let descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
 			person = this.attributes.lastSearch.results[0];
 			cardContent = generateCard(person); //calling the helper function to generate the card content that will be sent to the Alexa app.
 			speechOutput = generateTellMeMoreMessage(person);
-			repromptSpeech = "Would you like to find another evangelist? Say yes or no";
+			repromptSpeech = "Would you like to find another person in your address book? Say yes or no";
 
 			console.log("the contact you're trying to find more info about is " + person.firstName);
 			this.handler.state = states.SEARCHMODE;
@@ -320,7 +320,7 @@ let descriptionHandlers = Alexa.CreateStateHandler(states.DESCRIPTION, {
 			person =  this.attributes.lastSearch.results[0];
 			cardContent = generateCard(person);
 			speechOutput = generateSpecificInfoMessage(slots,person);
-			repromptSpeech = "Would you like to find another evangelist? Say yes or no";
+			repromptSpeech = "Would you like to find another person in your address book? Say yes or no";
 			this.handler.state = states.SEARCHMODE;
 			this.attributes.lastSearch.lastSpeech = speechOutput;
 			this.response.cardRenderer(cardContent.title, cardContent.body, cardContent.image);
@@ -583,7 +583,7 @@ function searchByInfoTypeIntentHandler(){
 				let person = this.attributes.lastSearch.results[0];
 				let cardContent = generateCard(person);
 				let speechOutput = generateSpecificInfoMessage(slots,person);
-				let repromptSpeech = "Would you like to find another evangelist? Say yes or no";
+				let repromptSpeech = "Would you like to find another person in your address book? Say yes or no";
 				this.attributes.lastSearch.lastSpeech = speechOutput;
 				this.handler.state = states.SEARCHMODE;
 				this.response.cardRenderer(cardContent.title, cardContent.body, cardContent.image);
@@ -671,8 +671,9 @@ function generateSearchResultsMessage(searchQuery,results){
 	return sentence;
 }
 
+// My generic help message to give the user an example
 function getGenericHelpMessage(data){
-	let sentences = ["ask - who is " + getRandomName(data),"say - find an evangelist in " + getRandomCity(data)];
+	let sentences = ["ask - who is " + getRandomName(data),"say - find an person in your address book in " + getRandomCity(data)];
 	return "You can " + sentences[getRandom(0,sentences.length-1)];
 }
 
@@ -698,7 +699,7 @@ function generateSpecificInfoMessage(slots,person){
 		infoTypeValue = slots.infoType.value;
 	}
 
-	sentence = person.firstName + "'s " + infoTypeValue.toLowerCase() + " is - " + person["say" + infoTypeValue.toLowerCase()] + " . Would you like to find another evangelist? " + getGenericHelpMessage(data);
+	sentence = person.firstName + "'s " + infoTypeValue.toLowerCase() + " is - " + person["say" + infoTypeValue.toLowerCase()] + " . Would you like to find another person in your address book? " + getGenericHelpMessage(data);
 	return optimizeForSpeech(sentence);
 }
 
