@@ -673,7 +673,7 @@ function generateSearchResultsMessage(searchQuery,results){
 
 // My generic help message to give the user an example
 function getGenericHelpMessage(data){
-	let sentences = ["ask - who is " + getRandomName(data),"say - find an person in your address book in " + getRandomCity(data)];
+	let sentences = ["ask - who is " + getRandomName(data),"say - find a person in my address book in " + getRandomCity(data)];
 	return "You can " + sentences[getRandom(0,sentences.length-1)];
 }
 
@@ -683,7 +683,7 @@ function generateSearchHelpMessage(gender){
 }
 
 function generateTellMeMoreMessage(person){
-	let sentence = person.firstName + " joined the Alexa team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " Twitter handle is " + person.saytwitter + " . " + generateSendingCardToAlexaAppMessage(person,"general");
+	let sentence = person.firstName + " joined the Online Growth Systems team in " + person.joinDate + ". " + genderize("his-her", person.gender) + " Twitter handle is " + person.saytwitter + " . " + generateSendingCardToAlexaAppMessage(person,"general");
 	return sentence;
 }
 function generateSpecificInfoMessage(slots,person){
@@ -737,8 +737,8 @@ function generateCard(person) {
 	let cardTitle = "Contact Info for " + titleCase(person.firstName) + " " + titleCase(person.lastName);
 	let cardBody = "Twitter: " + "@" + person.twitter + " \n" + "GitHub: " + person.github + " \n" + "LinkedIn: " + person.linkedin;
 	let imageObj = {
-		smallImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.firstName + "._TTH_.jpg",
-		largeImageUrl: "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/team-lookup/avatars/" + person.firstName + "._TTH_.jpg",
+		smallImageUrl: "https://www.onlinegrowthsystems.com/uploads/8/0/3/6/80367096/editor/headshot_1.jpg?1493687237" + person.firstName + "._TTH_.jpg",
+		largeImageUrl: "https://www.onlinegrowthsystems.com/uploads/8/0/3/6/80367096/editor/headshot_1.jpg?1493687237" + person.firstName + "._TTH_.jpg",
 	};
 	return {
 		"title": cardTitle,
