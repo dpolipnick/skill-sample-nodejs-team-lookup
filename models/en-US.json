@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "team lookup",
+      "invocationName": "address book",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -46,10 +46,10 @@
           "name": "SearchByCityIntent",
           "samples": [
             "who is in {cityName} ",
-            "find me an evangelist in {cityName} ",
+            "find me someone in {cityName} ",
             "find me someone in {cityName} ",
             "{cityName} ",
-            "{cityName} evangelist"
+            "{cityName} someone"
           ],
           "slots": [
             {
@@ -170,42 +170,17 @@
           "values": [
             {
               "name": {
-                "value": "paul"
+                "value": "dick"
+              }
+            },
+            {
+              "name": {
+                "value": "noah"
               }
             },
             {
               "name": {
                 "value": "jeff"
-              }
-            },
-            {
-              "name": {
-                "value": "memo"
-              }
-            },
-            {
-              "name": {
-                "value": "rob"
-              }
-            },
-            {
-              "name": {
-                "value": "dave"
-              }
-            },
-            {
-              "name": {
-                "value": "amit"
-              }
-            },
-            {
-              "name": {
-                "value": "liz"
-              }
-            },
-            {
-              "name": {
-                "value": "dean"
               }
             }
           ]
