@@ -7,7 +7,7 @@ const Alexa = require("alexa-sdk"); // import the library
 
 //Replace with your app ID (OPTIONAL).  You can find this value at the top of your skill's page on http://developer.amazon.com.
 //Make sure to enclose your value in quotes, like this:  const APP_ID = "amzn1.ask.skill.bb4045e6-b3e8-4133-b650-72923c5980f1";
-const APP_ID = undefined;
+const APP_ID = "amzn1.ask.skill.3def3e25-58c9-40d4-b9e9-b53e7f3e1987";
 
 // =====================================================================================================
 // --------------------------------- Section 1. Data and Text strings  ---------------------------------
@@ -31,7 +31,7 @@ const skillName = "Address Book";
 const WELCOME_MESSAGE = "Welcome to " + skillName + "I help you keep track of your friends and family contact information. For example, you can ask me, " + getGenericHelpMessage(data);
 
 //This is the message a user will hear when they ask Alexa for help in your skill.
-const HELP_MESSAGE = "I can help you find Alexa Evangelists and Solutions Architects. ";
+const HELP_MESSAGE = "I can tell you your friends and family's contact information, like their phone number, city, or birthday. ";
 
 //This is the message a user will hear when they begin a new search
 const NEW_SEARCH_MESSAGE = getGenericHelpMessage(data);
